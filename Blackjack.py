@@ -1,6 +1,5 @@
 from random import choice
 
-
 def main():
 
     cards = {
@@ -19,7 +18,7 @@ def main():
         "K": 10
     }
 
-    print("Player's Turn-----------------------")
+    print("Player's Turn Begin-----------------------")
 
     card, person_points = deal_card(cards=cards, total_points=0)
     print("Card drawn:", card, ", Player's Total:", person_points)
@@ -32,7 +31,7 @@ def main():
                                   total_points=person_points,
                                   deal_threshold=21)
 
-    print("Dealer's Turn-----------------------")
+    print("Dealer's Turn Now-----------------------")
 
     card, dealer_points = deal_card(cards=cards, total_points=0)
     print("Card drawn:", card, ", Dealer's Total:", dealer_points)
@@ -46,12 +45,10 @@ def main():
                   deal_threshold=17,
                   winning_threshold=person_points)
 
-
 def deal_card(cards, total_points):
     single_card = choice(list(cards.keys()))
     total_points += cards[single_card]
     return single_card, total_points
-
 
 def dealing_logic(cards, is_dealer, total_points, deal_threshold, winning_threshold=21):
 
@@ -85,6 +82,5 @@ def dealing_logic(cards, is_dealer, total_points, deal_threshold, winning_thresh
                     break
 
     return total_points
-
 
 main()
